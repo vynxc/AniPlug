@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+
+<ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+    <Color x:Key="Primary">#512BD4</Color>
+    <Color x:Key="Secondary">#DFD8F7</Color>
+    <Color x:Key="Tertiary">#2B0B98</Color>
+    <Color x:Key="White">White</Color>
+    <Color x:Key="Black">Black</Color>
+    <Color x:Key="Gray100">#E1E1E1</Color>
+    <Color x:Key="Gray200">#C8C8C8</Color>
+    <Color x:Key="Gray300">#ACACAC</Color>
+    <Color x:Key="Gray400">#919191</Color>
+    <Color x:Key="Gray500">#6E6E6E</Color>
+    <Color x:Key="Gray600">#404040</Color>
+    <Color x:Key="Gray900">#212121</Color>
+    <Color x:Key="Gray950">#141414</Color>
+    <SolidColorBrush Color="{StaticResource Primary}" x:Key="PrimaryBrush" />
+    <SolidColorBrush Color="{StaticResource Secondary}" x:Key="SecondaryBrush" />
+    <SolidColorBrush Color="{StaticResource Tertiary}" x:Key="TertiaryBrush" />
+    <SolidColorBrush Color="{StaticResource White}" x:Key="WhiteBrush" />
+    <SolidColorBrush Color="{StaticResource Black}" x:Key="BlackBrush" />
+    <SolidColorBrush Color="{StaticResource Gray100}" x:Key="Gray100Brush" />
+    <SolidColorBrush Color="{StaticResource Gray200}" x:Key="Gray200Brush" />
+    <SolidColorBrush Color="{StaticResource Gray300}" x:Key="Gray300Brush" />
+    <SolidColorBrush Color="{StaticResource Gray400}" x:Key="Gray400Brush" />
+    <SolidColorBrush Color="{StaticResource Gray500}" x:Key="Gray500Brush" />
+    <SolidColorBrush Color="{StaticResource Gray600}" x:Key="Gray600Brush" />
+    <SolidColorBrush Color="{StaticResource Gray900}" x:Key="Gray900Brush" />
+    <SolidColorBrush Color="{StaticResource Gray950}" x:Key="Gray950Brush" />
+    <Color x:Key="Yellow100Accent">#F7B548</Color>
+    <Color x:Key="Yellow200Accent">#FFD590</Color>
+    <Color x:Key="Yellow300Accent">#FFE5B9</Color>
+    <Color x:Key="Cyan100Accent">#28C2D1</Color>
+    <Color x:Key="Cyan200Accent">#7BDDEF</Color>
+    <Color x:Key="Cyan300Accent">#C3F2F4</Color>
+    <Color x:Key="Blue100Accent">#3E8EED</Color>
+    <Color x:Key="Blue200Accent">#72ACF1</Color>
+    <Color x:Key="Blue300Accent">#A7CBF6</Color>
+
+</ResourceDictionary>

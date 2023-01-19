@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    x:Class="AniPlug.Anime.Views.Containers.HomePage.AnimeCollection"
+    x:DataType="models:AnimeCollectionModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:models="clr-namespace:AniPlug.Anime"
+    xmlns:viewCells="clr-namespace:AniPlug.Anime.Views.ViewCells"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <VerticalStackLayout>
+        <Label
+            FontFamily="MontserraMedium"
+            FontSize="20"
+            HorizontalOptions="Start"
+            Margin="15,15,5,5"
+            Text="{Binding name}"
+            VerticalOptions="Center" />
+        <CollectionView
+            ItemsLayout="HorizontalList"
+            ItemsSource="{Binding animes}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <viewCells:AnimeBase Margin="10,5,5,5" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentView>

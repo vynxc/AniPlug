@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    BackgroundColor="Transparent"
+    x:Class="AniPlug.Anime.Views.ViewCells.RandomAnime"
+    x:DataType="models:Anime"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:converters="clr-namespace:AniPlug.Converters"
+    xmlns:models="clr-namespace:AniPlug.API_Wrappers.Consumet.Models"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Resources>
+        <converters:GenresConverter x:Key="GenresConverter" />
+        <converters:TitlesConverter x:Key="TitlesConverter" />
+    </ContentView.Resources>
+    <Frame
+        BackgroundColor="Transparent"
+        BorderColor="Black"
+        CornerRadius="15"
+        Margin="10"
+        Padding="1">
+        <Frame.HeightRequest>
+            <OnIdiom x:TypeArguments="x:Double">
+                <OnIdiom.Phone>200</OnIdiom.Phone>
+
+                <OnIdiom.Desktop>500</OnIdiom.Desktop>
+            </OnIdiom>
+        </Frame.HeightRequest>
+        <Grid ColumnSpacing="0">
+            <Image Aspect="AspectFill" Source="{Binding cover}" />
+            <Grid>
+
+                <Grid.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="Transparent" Offset=".5" />
+                        <GradientStop Color="Black" Offset="1" />
+                    </LinearGradientBrush>
+                </Grid.Background>
+            </Grid>
+            <VerticalStackLayout
+                BackgroundColor="Transparent"
+                Margin="15,5,5,15"
+                Spacing="0"
+                VerticalOptions="End">
+                <Label
+                    FontFamily="BeVietnamPro"
+                    FontSize="25"
+                    Text="{Binding title, Converter={StaticResource TitlesConverter}}"
+                    VerticalOptions="End" />
+                <Label
+                    FontAutoScalingEnabled="True"
+                    Text="{Binding genres, Converter={StaticResource GenresConverter}}"
+                    VerticalOptions="End" />
+            </VerticalStackLayout>
+
+
+        </Grid>
+
+    </Frame>
+
+</ContentView>

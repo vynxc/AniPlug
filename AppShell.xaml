@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Shell
+    BackgroundColor="#02082A"
+    x:Class="AniPlug.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:aniPlug="clr-namespace:AniPlug"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+
+
+    <TabBar>
+        <Tab
+            Icon="Home"
+            Title="Home"
+            x:Name="tab">
+            <ShellContent ContentTemplate="{DataTemplate aniPlug:HeroPage}" />
+        </Tab>
+        <Tab Icon="elements_plus" Title="Library">
+
+            <ShellContent ContentTemplate="{DataTemplate aniPlug:HeroPage}" />
+        </Tab>
+        <Tab Icon="sliders_horiz_2" Title="Settings">
+
+            <ShellContent ContentTemplate="{DataTemplate aniPlug:HeroPage}" />
+        </Tab>
+
+    </TabBar>
+
+
+    <Shell.Resources>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarBackgroundColor" Value="#02082A" />
+            <Setter Property="Shell.TabBarTitleColor" Value="Black" />
+            <Setter Property="Shell.TabBarUnselectedColor" Value="#0099CC" />
+            <Setter Property="Shell.TabBarTitleColor" Value="#00BFFF" />
+        </Style>
+
+    </Shell.Resources>
+
+
+</Shell>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView
+    x:Class="AniPlug.FlixHq.Views.Containers.MovieContainer"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:models="clr-namespace:AniPlug.Models"
+    xmlns:viewCells="clr-namespace:AniPlug.FlixHq.Views.ViewCells"
+    x:DataType="models:MovieCollectionModel">
+    <VerticalStackLayout>
+        <Label
+            Margin="15,15,5,5"
+            FontFamily="MontserraMedium"
+            FontSize="20"
+            HorizontalOptions="Start"
+            Text="{Binding name}"
+            VerticalOptions="Center" />
+        <CollectionView
+            ItemsLayout="HorizontalList"
+            ItemsSource="{Binding movies}"
+            SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <viewCells:MovieBase Margin="10,5,5,5" />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </VerticalStackLayout>
+</ContentView>

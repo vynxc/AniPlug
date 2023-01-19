@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentPage
+    BackgroundColor="#02082A"
+    Title="Streme"
+    x:Class="AniPlug.HeroPage"
+    x:DataType="vm:MainPageViewModel"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:collection="clr-namespace:AniPlug.Anime.Views.Containers.HomePage"
+    xmlns:system="clr-namespace:System;assembly=System.Runtime"
+    xmlns:viewCells="clr-namespace:AniPlug.Anime.Views.ViewCells"
+    xmlns:local="clr-namespace:AniPlug"
+    xmlns:movieContainer="clr-namespace:AniPlug.FlixHq.Views.Containers"
+    xmlns:vm="clr-namespace:AniPlug.Anime.ViewModels"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Resources />
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Search">
+            <ToolbarItem.IconImageSource>
+                <FileImageSource File="search" />
+            </ToolbarItem.IconImageSource>
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <ScrollView>
+        <VerticalStackLayout>
+            <VerticalStackLayout>
+                <CarouselView
+                    HorizontalOptions="Center"
+                    IndicatorView="Indicator"
+                    ItemsLayout="HorizontalList"
+                    ItemsSource="{Binding ScoreAnimes}">
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <viewCells:RandomAnime Margin="2,2,2,2" />
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <IndicatorView
+                    HorizontalOptions="Center"
+                    Margin="0,10,0,0"
+                    x:Name="Indicator">
+                    <IndicatorView.IsVisible>
+                        <OnIdiom x:TypeArguments="system:Boolean">
+                            <OnIdiom.Phone>true</OnIdiom.Phone>
+
+                            <OnIdiom.Desktop>false</OnIdiom.Desktop>
+                        </OnIdiom>
+                    </IndicatorView.IsVisible>
+                </IndicatorView>
+            </VerticalStackLayout>
+            <ListView
+                HasUnevenRows="True"
+                ItemsSource="{Binding MainAnime}"
+                SelectionMode="None"
+                SeparatorVisibility="None"
+                VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <collection:AnimeCollection />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <ListView
+                HasUnevenRows="True"
+                ItemsSource="{Binding Movies}"
+                SelectionMode="None"
+                SeparatorVisibility="None"
+                VerticalScrollBarVisibility="Never">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <movieContainer:MovieContainer />
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<ContentView
+    x:Class="AniPlug.Anime.Views.ViewCells.AnimeBase"
+    x:DataType="models:Anime"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:converters="clr-namespace:AniPlug.Converters"
+    xmlns:models="clr-namespace:AniPlug.API_Wrappers.Consumet.Models"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentView.Resources>
+        <converters:GenresConverter x:Key="GenresConverter" />
+        <converters:TitlesConverter x:Key="TitlesConverter" />
+
+    </ContentView.Resources>
+    <Frame
+        BackgroundColor="#1F1F1F"
+        CornerRadius="10"
+        HasShadow="True"
+        HorizontalOptions="Start"
+        Padding="0"
+        StyleClass="Elevation5">
+        <Frame.HeightRequest>
+            <OnIdiom x:TypeArguments="x:Double">
+                <OnIdiom.Phone>200</OnIdiom.Phone>
+
+                <OnIdiom.Desktop>285</OnIdiom.Desktop>
+            </OnIdiom>
+        </Frame.HeightRequest>
+        <Frame.WidthRequest>
+            <OnIdiom x:TypeArguments="x:Double">
+                <OnIdiom.Phone>130</OnIdiom.Phone>
+                <OnIdiom.Desktop>170</OnIdiom.Desktop>
+            </OnIdiom>
+        </Frame.WidthRequest>
+        <Frame.GestureRecognizers>
+            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" />
+        </Frame.GestureRecognizers>
+        <Grid>
+            <Image
+                Aspect="AspectFill"
+                BackgroundColor="#1F1F1F"
+                Source="{Binding image}" />
+            <VerticalStackLayout VerticalOptions="End">
+                <Label
+                    FontAttributes="Bold"
+                    FontAutoScalingEnabled="True"
+                    FontFamily="BeVietnamPro"
+                    FontSize="12"
+                    LineBreakMode="TailTruncation"
+                    Margin="5"
+                    MaxLines="1"
+                    Text="{Binding title, Converter={StaticResource TitlesConverter}}"
+                    TextColor="White" />
+                <Label
+                    FontSize="10"
+                    LineBreakMode="TailTruncation"
+                    Margin="5"
+                    MaxLines="1"
+                    Opacity=".7"
+                    Text="{Binding genres, Converter={StaticResource GenresConverter}}"
+                    TextColor="White" />
+                <VerticalStackLayout.Background>
+                    <LinearGradientBrush EndPoint="0,1">
+                        <GradientStop Color="Transparent" Offset="0" />
+                        <GradientStop Color="Black" Offset="1" />
+                    </LinearGradientBrush>
+                </VerticalStackLayout.Background>
+            </VerticalStackLayout>
+        </Grid>
+    </Frame>
+</ContentView>

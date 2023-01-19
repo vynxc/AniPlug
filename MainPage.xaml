@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AniPlug.MainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AniPlug.Converters"
+    xmlns:containers="clr-namespace:AniPlug.Anime.Views.Containers.HomePage"
+    xmlns:viewModels="clr-namespace:AniPlug.Anime.ViewModels"
+    x:Name="root"
+    x:DataType="viewModels:MainPageViewModel"
+    Shell.BackgroundColor="#1F1F1F">
+
+    <ContentPage.Resources>
+        <local:MilisecondsToMinuteSecondConverter x:Key="milisecondsToMinuteSecondConverter" />
+    </ContentPage.Resources>
+    <ScrollView>
+
+        <StackLayout Spacing="5">
+
+            <containers:RandomAnime/>
+
+            <CollectionView
+                x:Name="colTest"
+            
+                ItemsSource="{Binding MainAnime}">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <containers:AnimeCollection Margin="5" />
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+        </StackLayout>
+
+    </ScrollView>
+
+</ContentPage>

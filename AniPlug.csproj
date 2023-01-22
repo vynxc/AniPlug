@@ -1,8 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net6.0-android;net6.0-ios;net6.0-maccatalyst</TargetFrameworks>
-        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net6.0-windows10.0.19041.0</TargetFrameworks>
+        <TargetFrameworks>net7.0-android;net7.0-ios;net7.0-maccatalyst</TargetFrameworks>
+        <TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net7.0-windows10.0.19041.0</TargetFrameworks>
         <!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
         <!-- <TargetFrameworks>$(TargetFrameworks);net6.0-tizen</TargetFrameworks> -->
         <OutputType>Exe</OutputType>
@@ -64,6 +64,7 @@
         <None Remove="Resources\Icons\arrow_top_rec.svg" />
         <None Remove="Resources\Icons\bookmark.svg" />
         <None Remove="Resources\Icons\bookmark_filled.svg" />
+        <None Remove="Resources\Icons\close.svg" />
         <None Remove="Resources\Icons\elements_plus.svg" />
         <None Remove="Resources\Icons\file_download.svg" />
         <None Remove="Resources\Icons\heart.svg" />
@@ -83,6 +84,7 @@
         <MauiImage Include="Resources\Icons\arrow_top_rec.svg" />
         <MauiImage Include="Resources\Icons\bookmark.svg" />
         <MauiImage Include="Resources\Icons\bookmark_filled.svg" />
+        <MauiImage Include="Resources\Icons\close.svg" />
         <MauiImage Include="Resources\Icons\elements_plus.svg" />
         <MauiImage Include="Resources\Icons\file_download.svg" />
         <MauiImage Include="Resources\Icons\heart.svg" />
@@ -92,30 +94,30 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="CommunityToolkit.Maui" Version="1.2.0" />
-        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+        <PackageReference Include="CommunityToolkit.Maui" Version="3.1.0" />
+        <PackageReference Include="CommunityToolkit.Mvvm" Version="8.1.0" />
         <PackageReference Include="JikanDotNet" Version="2.4.3" />
         <PackageReference Include="MonkeyCache" Version="2.0.1" />
         <PackageReference Include="MonkeyCache.FileStore" Version="2.0.1" />
         <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
-        <PackageReference Include="RestSharp" Version="106.0.0" />
+        <PackageReference Include="RestSharp" Version="108.0.3" />
         <PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.61" />
-        <PackageReference Include="UraniumUI.Icons.MaterialIcons" Version="1.1.1" />
-        <PackageReference Include="UraniumUI.Material" Version="1.1.1" />
+        <PackageReference Include="UraniumUI.Icons.MaterialIcons" Version="2.2.5" />
+        <PackageReference Include="UraniumUI.Material" Version="2.2.5" />
     </ItemGroup>
 
     <ItemGroup>
         <MauiXaml Update="FlixHq\Views\Containers\HomePage\MovieContainer.xaml">
-          <Generator>MSBuild:Compile</Generator>
+            <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
         <MauiXaml Update="FlixHq\Views\ViewCells\MovieBase.xaml">
-          <Generator>MSBuild:Compile</Generator>
+            <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
         <MauiXaml Update="Resources\Fonts\Fonts.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
         <MauiXaml Remove="MainPage.xaml" />
-        <MauiXaml Update="HeroPage.xaml">
+        <MauiXaml Update="Shared\Pages\HeroPage.xaml">
             <SubType>Designer</SubType>
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
@@ -134,11 +136,14 @@
         <MauiXaml Update="Anime\Views\ViewCells\AnimeBase.xaml">
             <Generator>MSBuild:Compile</Generator>
         </MauiXaml>
+        <MauiXaml Update="Shared\Pages\SearchPage.xaml">
+          <Generator>MSBuild:Compile</Generator>
+        </MauiXaml>
     </ItemGroup>
 
     <ItemGroup>
         <Compile Remove="MainPage.xaml.cs" />
-        <Compile Update="HeroPage.xaml.cs">
+        <Compile Update="Shared\Pages\HeroPage.xaml.cs">
             <DependentUpon>HeroPage.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>

@@ -1,19 +1,18 @@
-﻿#if  ANDROID
-using Android.Text;
-#endif
-using AniPlug.Anime.ViewModels;
+﻿using AniPlug.Anime.ViewModels;
 using AniPlug.API_Wrappers.Consumet;
+using AniPlug.Shared.Pages;
 using CommunityToolkit.Maui;
-using JikanDotNet;
 using Microsoft.Maui.Handlers;
 using SkiaSharp.Views.Maui.Controls.Hosting;
 using UraniumUI;
+#if ANDROID
+using Android.Text;
+#endif
 
 namespace AniPlug;
 
 public static class MauiProgram
 {
-    public static IJikan jikan = new Jikan();
     public static Consumet Consumet = new();
 
     public static MauiApp CreateMauiApp()
@@ -22,8 +21,7 @@ public static class MauiProgram
         builder
             .UseMauiApp<App>()
             .UseMauiCommunityToolkit()
-            .UseSkiaSharp()
-            .ConfigureMauiHandlers(handlers => { handlers.AddUraniumUIHandlers(); }).ConfigureFonts(fonts =>
+            .ConfigureFonts(fonts =>
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
@@ -31,13 +29,13 @@ public static class MauiProgram
                 fonts.AddFont("Montserrat-Medium.ttf", "MontserraMedium");
                 fonts.AddFont("Montserrat-SemiBold.ttf", "MontserratSemiBold");
                 fonts.AddFont("BeVietnamPro-Regular.ttf", "BeVietnamPro");
-
-
-                fonts.AddMaterialIconFonts();
-            }).UseMauiCommunityToolkit();
-
+                
+            });
+       
         builder.Services.AddSingleton(typeof(HeroPage));
         builder.Services.AddSingleton(typeof(MainPageViewModel));
+        builder.Services.AddSingleton(typeof(SearchPage));
+
         AllowMultiLineTruncationOnAndroid();
 
         return builder.Build();

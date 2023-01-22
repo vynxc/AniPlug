@@ -9,4 +9,6 @@ public partial class HeroPage : ContentPage
         InitializeComponent();
         BindingContext = vm;
     }
+
+    
 }

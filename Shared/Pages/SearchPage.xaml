@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="AniPlug.Shared.Pages.SearchPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:converters="clr-namespace:AniPlug.Converters"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Search"
+    BackgroundColor="#02041A"
+    Shell.NavBarIsVisible="False">
+    <ContentPage.Resources>
+        <converters:StringToBool x:Key="StringToBool"/>
+    </ContentPage.Resources>
+    <VerticalStackLayout>
+        <StackLayout
+            BackgroundColor="#02082A"
+            HeightRequest="55"
+            Orientation="Horizontal">
+            <ImageButton Margin="10,0,0,0" Source="arrow_left_rec" />
+
+            <Entry
+                x:Name="entry"
+                Margin="15,0,0,0"
+                BackgroundColor="Transparent"
+                FontSize="20"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="Search"
+                PlaceholderColor="#b3ffffff"
+                VerticalOptions="Center" />
+            <ImageButton  HorizontalOptions="End" IsVisible="{Binding Source={x:Reference entry},Path=Text, Converter={StaticResource StringToBool}}" HeightRequest="50"  WidthRequest="50" >
+                <ImageButton.Source>
+                    <FontImageSource Glyph="{StaticResource  IconXmark}"/>
+                </ImageButton.Source>
+            </ImageButton>
+
+        </StackLayout>
+    </VerticalStackLayout>
+
+
+</ContentPage>

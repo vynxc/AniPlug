@@ -2,19 +2,34 @@
 
 <ContentView
     x:Class="AniPlug.Anime.Views.Containers.HomePage.AnimeCollection"
-    x:DataType="models:AnimeCollectionModel"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:models="clr-namespace:AniPlug.Anime"
     xmlns:viewCells="clr-namespace:AniPlug.Anime.Views.ViewCells"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    x:DataType="models:AnimeCollectionModel">
     <VerticalStackLayout>
-        <Label
-            FontFamily="MontserraMedium"
-            FontSize="20"
-            HorizontalOptions="Start"
-            Margin="15,15,5,5"
-            Text="{Binding name}"
-            VerticalOptions="Center" />
+
+        <StackLayout Orientation="Horizontal">
+            <Label
+                Margin="15,15,5,5"
+                FontFamily="MontserraMedium"
+                FontSize="20"
+                HorizontalOptions="Start"
+                Text="{Binding name}"
+                VerticalOptions="Center" />
+            <Label
+                Margin="15,15,15,5"
+                BackgroundColor="Transparent"
+                FontFamily="MontserraMedium"
+                FontSize="14"
+                HorizontalOptions="EndAndExpand"
+                Text="See all"
+                TextColor="#00BFFF"
+                FontAttributes="Bold"
+                TextDecorations="None"
+                VerticalOptions="Center" />
+        </StackLayout>
+
         <CollectionView
             ItemsLayout="HorizontalList"
             ItemsSource="{Binding animes}"

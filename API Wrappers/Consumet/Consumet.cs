@@ -13,8 +13,8 @@ public class Consumet
 {
     #region Settings
 
-    private Provider Provider { get; } = Provider.GogoAnime;
-    private bool IsDub { get; } = false;
+    private Provider Provider { get; set; } = Provider.GogoAnime;
+    private bool IsDub { get; set; } = false;
 
     #endregion
 
@@ -55,7 +55,8 @@ public class Consumet
     #endregion Constructors
 
     #region Private Methods
-    private SemaphoreSlim _barrelSemaphore = new SemaphoreSlim(1);
+
+    private readonly SemaphoreSlim _barrelSemaphore = new(1);
 
     private async Task<T> GetAsync<T>(string endpoint, int hours = 24, bool forceRefresh = false)
     {
@@ -87,8 +88,11 @@ public class Consumet
                 //probably re-throw here :)
             }
         }
-        finally { _barrelSemaphore.Release(); }
-        
+        finally
+        {
+            _barrelSemaphore.Release();
+        }
+
 
         return default;
     }
@@ -98,12 +102,13 @@ public class Consumet
     {
         var builder = new StringBuilder().Append('?');
         builder.Append($"provider={Provider.GetDescription()}&");
+
         builder.Append($"dub={IsDub.ToString().ToLower()}");
+
         return builder.ToString().Trim('&');
     }
 
     #endregion Private Methods
-
 
     #region Public Methods
 

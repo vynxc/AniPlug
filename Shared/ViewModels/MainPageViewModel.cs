@@ -4,6 +4,7 @@ using AniPlug.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MonkeyCache.FileStore;
+using System;
 using System.Diagnostics;
 
 namespace AniPlug.Anime.ViewModels;
@@ -62,8 +63,18 @@ public partial class MainPageViewModel : ObservableObject
         MainAnime = collection;
         Movies = moviesCollection;
         ScoreAnimes = score.results!.Take(5).ToList();
-       
-      
+
+        var parser = new SubtitlesParser.Classes.Parsers.SubParser();
+
+        using (var wc = new System.Net.WebClient())
+        {
+            var items = parser.ParseStream(new MemoryStream(wc.DownloadData("https://cc.zorores.com/10/e1/10e10345ce95557db9f36d8e4bd73148/eng-2.vtt")));
+            Debug.WriteLine(items[0].Lines.ToString());
+            Console.WriteLine(items[0].Lines.ToString());
+
+
+        }
+
     }
 
 

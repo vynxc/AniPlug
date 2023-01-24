@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" ?>
 
 <ContentPage
+    BackgroundColor="#02041A"
+    Shell.NavBarHasShadow="True"
+    Title="Streme"
     x:Class="AniPlug.HeroPage"
+    x:DataType="vm:MainPageViewModel"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:collection="clr-namespace:AniPlug.Anime.Views.Containers.HomePage"
     xmlns:movieContainer="clr-namespace:AniPlug.FlixHq.Views.Containers"
     xmlns:system="clr-namespace:System;assembly=System.Runtime"
     xmlns:viewCells="clr-namespace:AniPlug.Anime.Views.ViewCells"
     xmlns:vm="clr-namespace:AniPlug.Anime.ViewModels"
-    Title="Streme"
-    x:DataType="vm:MainPageViewModel"
-    BackgroundColor="#02041A"
-    Shell.NavBarHasShadow="True">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
     <ContentPage.Resources />
     <ContentPage.ToolbarItems>
         <ToolbarItem Command="{Binding GoToSearchCommand}" Text="Search">
@@ -21,10 +21,9 @@
             </ToolbarItem.IconImageSource>
         </ToolbarItem>
     </ContentPage.ToolbarItems>
-
     <ScrollView>
-        <StackLayout>
-            <StackLayout>
+        <StackLayout VerticalOptions="StartAndExpand">
+            <StackLayout VerticalOptions="StartAndExpand">
                 <CarouselView
                     HorizontalOptions="Center"
                     IndicatorView="Indicator"
@@ -38,9 +37,9 @@
                     </CarouselView.ItemTemplate>
                 </CarouselView>
                 <IndicatorView
-                    x:Name="Indicator"
+                    HorizontalOptions="Center"
                     Margin="0,10,0,0"
-                    HorizontalOptions="Center">
+                    x:Name="Indicator">
                     <IndicatorView.IsVisible>
                         <OnIdiom x:TypeArguments="system:Boolean">
                             <OnIdiom.Phone>true</OnIdiom.Phone>

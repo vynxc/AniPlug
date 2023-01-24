@@ -97,7 +97,6 @@ public class Consumet
         return default;
     }
 
-
     private string ConsumetConfigToString()
     {
         var builder = new StringBuilder().Append('?');

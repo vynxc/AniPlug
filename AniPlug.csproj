@@ -102,6 +102,7 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
         <PackageReference Include="RestSharp" Version="108.0.3" />
         <PackageReference Include="SkiaSharp.Extended.UI.Maui" Version="2.0.0-preview.61" />
+        <PackageReference Include="SubtitlesParser" Version="1.5.1" />
         <PackageReference Include="UraniumUI.Icons.MaterialIcons" Version="2.2.5" />
         <PackageReference Include="UraniumUI.Material" Version="2.2.5" />
     </ItemGroup>
